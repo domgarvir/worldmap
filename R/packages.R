@@ -3,8 +3,7 @@
 # groupe de travail #
 # dongarvir #=======#
 #===========#
-F_loadPack<-function()
-{
+
   #-- CRAN packages vector --# Pour les package sur le CRAN
   cran_packages <- c(         # creation d'un vecteur des package que l'on souhaite
     "devtools",           # permet le telechargement des packages sur github
@@ -18,7 +17,8 @@ F_loadPack<-function()
     "rnaturalearth",       # pour importer des donnees naturalistes
     "rnaturalearthdata",   # pour importer des donnees naturalistes
     "sf",                  # pour gerer les vecteur en carto
-    "raster"             # pour gerer les raster en carto
+    "raster",             # pour gerer les raster en carto
+    "xaringan",           # pour les presentations
     )
   
   #-- non installed package list (n_i_p) --#
@@ -36,5 +36,5 @@ F_loadPack<-function()
        cat("\n >>> All packages loaded !\n")
      } else {
              cat("\n >>> Some packages failed to load !\n")
-            }
-}
+     }
+  
