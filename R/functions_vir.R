@@ -24,6 +24,7 @@ get_species_list<- function(country_list){
     print(request)
     response <- httr::GET(request)
     httr::http_status(response)
+    #we can try to improve this with %>% 
     datas <- httr::content(response, as = "text")
     results <- jsonlite::fromJSON(datas)
     tab_result<-results$result
@@ -33,4 +34,10 @@ get_species_list<- function(country_list){
   }#end for countries
   
   tab_results<-tab_prov[-c(1),]
+}
+
+save_species_list<- function(species_df){
+  folder="data"
+  filename="species_by_country.csv"
+  write_csv(species_df, file.path(".",folder,filename))
 }
