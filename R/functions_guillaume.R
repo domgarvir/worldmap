@@ -10,11 +10,17 @@
 countries_select<-function(continent='south america'){
 
 sf_southa<-ne_countries(scale=50,type="countries",continent=continent,returnclass='sf')
-sf_southa %>%
+sf_2<-sf_southa %>%
   dplyr::select(
     iso_a2,
     name,
     abbrev,
-    geometry) 
+    geometry)
+
+sf_3<-sf_2 %>%
+  sf::st_transform(crs=4318) %>%
+  dplyr::mutate(
+    centroid = sf::st_centroid(geometry)
+  )
 }
 
