@@ -14,7 +14,7 @@
     "lubridate",          # pour la manipulation des dates
     "fishualize",
     "taxize",
-    "rnaturalearth",       # pour importer des donnees naturalistes
+    "rnaturalearth",       # pour importer des donnees naturalistes ou de géométrie des pays
     "rnaturalearthdata",   # pour importer des donnees naturalistes
     "sf",                  # pour gerer les vecteur en carto
     "raster",             # pour gerer les raster en carto
