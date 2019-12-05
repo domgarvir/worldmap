@@ -38,5 +38,3 @@ F_loadPack<-function()
              cat("\n >>> Some packages failed to load !\n")
             }
 }
-
-F_loadPack()
