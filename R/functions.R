@@ -3,7 +3,7 @@
 read_country_list<-function(){
   folder="data"
   filename="latin_amercia_country_list.csv"
-  country_dfli=read_delim(file.path(".",folder,filename), sep="\t")
+  country_dfli=read_delim(file.path(".",folder,filename), delim="\t")
   
 }
 
