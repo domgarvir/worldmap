@@ -16,8 +16,11 @@ sf_2<-sf_southa %>%
     name,
     abbrev,
     geometry)
+}
 
-sf_3<-sf_2 %>%
+
+countries_centroid<-function(countries){
+sf_countries<-countries %>%
   sf::st_transform(crs=4318) %>%
   dplyr::mutate(
     centroid = sf::st_centroid(geometry)
