@@ -15,9 +15,6 @@ sf_southa %>%
     iso_a2,
     name,
     abbrev,
-    geometry) %>%
-  dplyr::mutate(
-    centroid= sf::st_centroid(geometry)
-  )
+    geometry) 
 }
 
