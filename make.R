@@ -4,6 +4,7 @@ source("R/functions.R")
 source("R/plan.R")
 
 # make (execute) plan
+# blz
 make(plan, verbose = 2)
 # graph
 # 
