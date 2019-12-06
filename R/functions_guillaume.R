@@ -30,10 +30,9 @@ sf_countries<-countries %>%
 
 
   
-carto_uicn<-function(jdd){
+carto_uicn<-function(jdd,countries){
 
-  jdd2<- pivot_wider(jdd, names_from = category, values_from = count_cat)
-  
+  jdd2<-tidyr::pivot_wider(jdd, names_from = category, values_from = count_cat)
 
   jdd_sf<-right_join(countries,jdd2,by=c("iso_a2"="pays"))
   
