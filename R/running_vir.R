@@ -1,5 +1,9 @@
 countries_df=countries_select()
 species_df=get_species_list(countries_df$iso_a2)
+species_cat=get_species_by_country_and_status(species_df)
+get_category_map(species_cat,countries_df,"EN")
+
+
 
 #get number of species in each cathegory by country; we do a groupby country, and catheogry
 cols<-c(country, category)
@@ -17,3 +21,25 @@ result <- species_df2 %>% count(country_name, category,Nesp) %>% filter(category
 
 #result <- result %>% mutate(prop=as.numeric(n)/as.numeric(Nesp)) 
 #test <- select(species_df2, country_name, Nesp) %>% unique() %>% inner_join(result)
+
+species_categories=get_species_by_country_and_status(species_df)
+plot(countries)    
+
+categories_n<-pivot_wider(species_cat, names_from = category, values_from = n, values_fill = list(n = 0))
+#add the column with total numer of species
+countries_df <- countries_df %>% rename(country = iso_a2)
+
+categories_n
+jdd_sf<-right_join(countries_df,categories_n)
+
+jdd_df<-jdd_sf %>%
+  mutate(long=st_coordinates(centroid)[,1],
+         lat=st_coordinates(centroid)[,2]) %>%
+  dplyr::select(-geometry,-centroid) %>%
+  as.data.frame()
+
+ggplot(jdd_sf)+
+  geom_sf(aes(fill=EN))+
+  theme_void()
+
+
