@@ -25,7 +25,7 @@ loadd()
 
 #-- look at specific target --#
 readd(carto)
-
+readd(carto2)
 #-- presentation --#
   presentation = rmarkdown::render(
     knitr_in("presentation.Rmd"),
