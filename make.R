@@ -21,11 +21,16 @@ config <- drake_config(plan)
 vis_drake_graph(config, targets_only = TRUE, file = file.path("manuscrit","output","drake_plot.png"))
 
 #-- all in work environment --#
-loadd()
+#loadd()
 
 #-- look at specific target --#
+<<<<<<< HEAD
 readd(carto)
 readd(carto2)
+=======
+#readd(carto)
+
+>>>>>>> ee4fe1d98e97b486c7116d1d58645909bd59359d
 #-- presentation --#
   presentation = rmarkdown::render(
     knitr_in("presentation.Rmd"),
