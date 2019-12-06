@@ -18,7 +18,8 @@
     "rnaturalearthdata",   # pour importer des donnees naturalistes
     "sf",                  # pour gerer les vecteur en carto
     "raster",             # pour gerer les raster en carto
-    "xaringan"           # pour les presentations
+    "xaringan",           # pour les presentations
+    "scatterpie"          # pour les pies sur la carte
     )
   
   #-- non installed package list (n_i_p) --#
