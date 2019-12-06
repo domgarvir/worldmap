@@ -27,3 +27,29 @@ sf_countries<-countries %>%
   )
 }
 
+
+  
+carto_uicn<-function(jdd){
+
+  jdd2<- pivot_wider(jdd, names_from = category, values_from = count_cat)
+  
+
+  jdd_sf<-right_join(countries,jdd2,by=c("iso_a2"="pays"))
+  
+  jdd_df<-jdd_sf %>%
+    mutate(long=st_coordinates(centroid)[,1],
+           lat=st_coordinates(centroid)[,2]) %>%
+    dplyr::select(-geometry,-centroid) %>%
+    as.data.frame()
+  
+ jdd_df<-jdd_df %>%
+   mutate(n_species=rowSums(jdd2[,levels(jdd$category)]))
+  
+  ggplot(jdd_sf)+
+    geom_sf()+
+    geom_scatterpie(data=jdd_df,aes(x=long,y=lat,group=iso_a2,r=sqrt(n_species/pi)),cols=levels(jdd$category))+
+    scale_fill_manual(values=c())
+    theme_void()
+  
+
+}
