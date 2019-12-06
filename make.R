@@ -24,15 +24,13 @@ vis_drake_graph(config, targets_only = TRUE, file = file.path("manuscrit","outpu
 loadd()
 
 #-- look at specific target --#
-#readd(countries)
-#readd(tab_species)
+readd(carto)
 
 #-- presentation --#
   presentation = rmarkdown::render(
-    knitr_in(file.path("manuscrit","presentation.Rmd")),
-    output_file = file_out(file.path("manuscrit","presentation.html")),
+    knitr_in("presentation.Rmd"),
+    output_file = file_out("presentation.html"),
     quiet = FALSE,
-    encoding = "UTF-8",
-    output_dir = file.path("manuscrit"))
+    encoding = "UTF-8")
   
   
