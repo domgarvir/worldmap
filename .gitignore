@@ -3,4 +3,5 @@
 .RData
 .Ruserdata
 ./presentation_files/*
+*.png
 presentation.html
