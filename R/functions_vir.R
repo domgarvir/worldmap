@@ -9,7 +9,7 @@ get_species_list<- function(country_list){
   #general query: we ask for the species list in each country
   query      <- "country/getspecies/"
   
-  tab_prov<-tibble(taxontaid=NA,scientific_name=NA,  subspecies=NA, rank=NA, subpopulation=NA, category=NA, country=NA, Nesp=NA)
+  tab_prov<-tibble(taxonid=NA,scientific_name=NA,  subspecies=NA, rank=NA, subpopulation=NA, category=NA, country=NA, Nesp=NA)
   for (country in country_list)
   
   {
