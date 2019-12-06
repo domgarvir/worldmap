@@ -30,12 +30,14 @@ sf_countries<-countries %>%
 
 
   
-carto_uicn<-function(jdd){
+carto_uicn<-function(jdd,countries){
 
-  jdd2<- pivot_wider(jdd, names_from = category, values_from = count_cat)
-  
+  jdd2<-tidyr::pivot_wider(jdd, names_from = category, values_from = count_cat)
+  class_uicn<-unique(jdd$category)
+  jdd2<-tidyr::pivot_wider(jdd, names_from = category, values_from = n)
 
   jdd_sf<-right_join(countries,jdd2,by=c("iso_a2"="pays"))
+  jdd_sf<-right_join(countries,jdd2,by=c("iso_a2"="country"))
   
   jdd_df<-jdd_sf %>%
     mutate(long=st_coordinates(centroid)[,1],
@@ -45,11 +47,14 @@ carto_uicn<-function(jdd){
   
  jdd_df<-jdd_df %>%
    mutate(n_species=rowSums(jdd2[,levels(jdd$category)]))
+   mutate(n_species=rowSums(jdd2[,class_uicn]))
   
   ggplot(jdd_sf)+
     geom_sf()+
     geom_scatterpie(data=jdd_df,aes(x=long,y=lat,group=iso_a2,r=sqrt(n_species/pi)),cols=levels(jdd$category))+
     scale_fill_manual(values=c())
+    geom_scatterpie(data=jdd_df,aes(x=long,y=lat,group=iso_a2,r=sqrt(n_species/pi)/20),cols=class_uicn)+
+    #scale_size(range=c(1:4))+
     theme_void()
   
 
