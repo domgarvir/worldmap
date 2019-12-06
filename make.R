@@ -24,7 +24,10 @@ vis_drake_graph(config, targets_only = TRUE, file = file.path("manuscrit","outpu
 #loadd()
 
 #-- look at specific target --#
-#readd(carto)
+
+readd(carto)
+readd(carto2)
+
 
 #-- presentation --#
   presentation = rmarkdown::render(
