@@ -38,7 +38,7 @@ carto_uicn<-function(jdd,countries){
     unique() %>%
     pull()
     
-  jdd2<-tidyr::pivot_wider(jdd, names_from = category, values_from = n)
+  jdd2<-tidyr::pivot_wider(jdd, names_from = category, values_from = n, values_fill = list(n=0))
 
   jdd_sf<-right_join(countries,jdd2,by=c("iso_a2"="country"))
   
