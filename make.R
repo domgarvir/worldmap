@@ -21,10 +21,13 @@ config <- drake_config(plan)
 vis_drake_graph(config, targets_only = TRUE, file = file.path("manuscrit","output","drake_plot.png"))
 
 #-- all in work environment --#
-loadd()
+#loadd()
 
 #-- look at specific target --#
+
 readd(carto)
+readd(carto2)
+
 
 #-- presentation --#
   presentation = rmarkdown::render(

@@ -25,39 +25,48 @@ knitr::opts_chunk$set(echo = FALSE)
 ## les objectifs
 * Faire la carte avec la répartition des espèces de chaque pays dans les différentes classes UICN  
 
-* Utiliser le plus possible d'éléments abordés pendant la semaine:  
+* Utiliser divers éléments abordés pendant la semaine:  
   + tidyverse et Rmarkdown  
-  + sf pour les données spatiale
+  + sf pour les données spatiales
   + drake  
-  + l'importation des données internet (API)   
+  + l'importation de données internet (API)   
   + **git et github**
+
+---
+## On a puller puis pusher
+.center[![:scale 100%](manuscrit/output/github.png)]
 
 ---
 ## le graphique des dépendances
 .center[![:scale 100%](manuscrit/output/drake_plot.png)]
 
 ---
-## une autre approche
-
+## une autre présentation possible
 ```{r}
 config <- drake_config(plan)
 vis_drake_graph(config, targets_only = TRUE)
 ```
 
-
 ---
-## la carte 
+## la première carte 
 
-```{r , echo=FALSE, fig.cap= "Fig. 1",out.width="50%",fig.align='center'}
+```{r , echo=FALSE, fig.cap= "Fig. 3",out.width="50%",fig.align='center'}
 drake::readd(carto)
 ```
 
+---
+## la deuxième carte 
+
+```{r , echo=FALSE, fig.cap= "Fig. 4",out.width="50%",fig.align='center'}
+drake::readd(carto2)
+```
 
 ---
-## quelques retours "d'experience"
-* git ne commut pas les dossiers vides.  
-* le plan de drake est un data.frame, donc utiliser **=** pour objects=fonctions().  
-* sourcer charge juste les fonctions (ne les applique pas). Il faut donc sourcer puis appliquer le plan dans le make.r.  
+## quelques retours "d’expérience"
+* git ne "commutte" pas les dossiers vides.  
+* le plan de drake est un data.frame, donc utiliser **=** pour objets=fonctions().  
+* "sourcer" charge juste les fonctions (ne les applique pas).
+* les problèmes de chemins entre drake et Rmardown nous ont contraint à mettre le .Rmd à la racine.
 
 ---
 
