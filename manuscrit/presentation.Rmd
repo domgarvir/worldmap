@@ -31,17 +31,18 @@ knitr::opts_chunk$set(echo = FALSE)
   + drake  
   + l'importation des données internet (API)   
   + **git et github**
-  
----
-## retours
-* git ne commut pas les dossiers vides.  
-* le plan de drake est un data.frame, donc utiliser **=** pour objects=fonctions().  
-* sourcer charge juste les fonctions (ne les applique pas). Il faut donc sourcer puis appliquer le plan dans le make.r.  
-* le graphique des interactions ne peut être produit directement dans le R.mardown. Il convient de l'enregistrer en .png au paravant.
 
 ---
 ## le graphique des dépendances
 .center[![:scale 100%](output/drake_plot.png)]
+  
+---
+## quelques retours "d'experience"
+* git ne commut pas les dossiers vides.  
+* le plan de drake est un data.frame, donc utiliser **=** pour objects=fonctions().  
+* sourcer charge juste les fonctions (ne les applique pas). Il faut donc sourcer puis appliquer le plan dans le make.r.  
+
+## le plan
 
 ---
 ## Les coupables
