@@ -51,11 +51,11 @@ get_species_by_country_and_status<- function(species_df)
 }
 
 #this function takes an species_df and countries and returns the map with countries colored by the number of species in the selected category
-get_category_map<-function(species_cat,countries_sf,status)
+get_category_map<-function(species_cat,countries_sf)
 {
   categories_n<-pivot_wider(species_cat, names_from = category, values_from = n, values_fill = list(n = 0))
-  countries_df <- countries_df %>% rename(country = iso_a2)
-  jdd_sf<-right_join(countries_df,categories_n)
+  countries_sf <- countries_sf %>% rename(country = iso_a2)
+  jdd_sf<-right_join(countries_sf,categories_n)
   
   ggplot(jdd_sf)+
     geom_sf(aes(fill=CR))+
