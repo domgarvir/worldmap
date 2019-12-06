@@ -27,7 +27,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Utiliser divers éléments abordés pendant la semaine:  
   + tidyverse et Rmarkdown  
-  + sf pour les données spatiale
+  + sf pour les données spatiales
   + drake  
   + l'importation de données internet (API)   
   + **git et github**
@@ -50,16 +50,23 @@ vis_drake_graph(config, targets_only = TRUE)
 ---
 ## la première carte 
 
-```{r , echo=FALSE, fig.cap= "Fig. 1",out.width="50%",fig.align='center'}
+```{r , echo=FALSE, fig.cap= "Fig. 3",out.width="50%",fig.align='center'}
 drake::readd(carto)
 ```
 
 ---
+## la deuxième carte 
+
+```{r , echo=FALSE, fig.cap= "Fig. 4",out.width="50%",fig.align='center'}
+drake::readd(carto2)
+```
+
+---
 ## quelques retours "d’expérience"
-* git ne commut pas les dossiers vides.  
+* git ne "commutte" pas les dossiers vides.  
 * le plan de drake est un data.frame, donc utiliser **=** pour objets=fonctions().  
-* sourcer charge juste les fonctions (ne les applique pas).
-* les problèmes de chemins entre drake et Rmardown nous ont contraint a mettre le .Rmd à la racine.
+* "sourcer" charge juste les fonctions (ne les applique pas).
+* les problèmes de chemins entre drake et Rmardown nous ont contraint à mettre le .Rmd à la racine.
 
 ---
 
