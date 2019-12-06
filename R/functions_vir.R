@@ -4,7 +4,7 @@ get_species_list<- function(country_list){
   #Sys.setenv(IUCN_KEY="9bb4facb6d23f48efbf424bb05c0c1ef1cf6f468393bc745d42179ac4aca5fee")
   iucn_token="9bb4facb6d23f48efbf424bb05c0c1ef1cf6f468393bc745d42179ac4aca5fee"
   #IUCN API url
-  api_url    <- "https://apiv3.iucnredlist.org/api/v3/"
+  api_url    <- "https://apiv3.iucnredlist.org/api/v3/"get
   
   #general query: we ask for the species list in each country
   query      <- "country/getspecies/"
