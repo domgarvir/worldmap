@@ -1,5 +1,6 @@
 #This function calls on IUCN (with a token) and returns the list of species for all te countries
 get_species_list<- function(country_list){
+  
   #define the token
   #Sys.setenv(IUCN_KEY="9bb4facb6d23f48efbf424bb05c0c1ef1cf6f468393bc745d42179ac4aca5fee")
   iucn_token="9bb4facb6d23f48efbf424bb05c0c1ef1cf6f468393bc745d42179ac4aca5fee"
@@ -9,7 +10,7 @@ get_species_list<- function(country_list){
   #general query: we ask for the species list in each country
   query      <- "country/getspecies/"
   
-  tab_prov<-tibble(taxontaid=NA,scientific_name=NA,  subspecies=NA, rank=NA, subpopulation=NA, category=NA, country=NA, Nesp=NA)
+  tab_prov<-tibble(taxonid=NA,scientific_name=NA,  subspecies=NA, rank=NA, subpopulation=NA, category=NA, country=NA, Nesp=NA)
   for (country in country_list)
   
   {

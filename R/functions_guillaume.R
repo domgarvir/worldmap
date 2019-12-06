@@ -17,4 +17,3 @@ sf_southa %>%
     abbrev,
     geometry) 
 }
-
