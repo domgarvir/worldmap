@@ -4,7 +4,7 @@ get_species_list<- function(country_list){
   #Sys.setenv(IUCN_KEY="9bb4facb6d23f48efbf424bb05c0c1ef1cf6f468393bc745d42179ac4aca5fee")
   iucn_token="9bb4facb6d23f48efbf424bb05c0c1ef1cf6f468393bc745d42179ac4aca5fee"
   #IUCN API url
-  api_url    <- "https://apiv3.iucnredlist.org/api/v3/"get
+  api_url    <- "https://apiv3.iucnredlist.org/api/v3/"
   
   #general query: we ask for the species list in each country
   query      <- "country/getspecies/"
@@ -34,10 +34,17 @@ get_species_list<- function(country_list){
   }#end for countries
   
   tab_results<-tab_prov[-c(1),]
+  return(tab_results)
 }
 
 save_species_list<- function(species_df){
   folder="data"
   filename="species_by_country.csv"
   write_csv(species_df, file.path(".",folder,filename))
+}
+
+get_species_by_country_and_status<- function(species_df)
+{
+  species_df %>% count(country, category) -> result
+  return(result)
 }
