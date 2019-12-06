@@ -1,57 +1,51 @@
 ---
-title: "Presentation"
-subtitle: "⚔<br/>with xaringan"
-author: "groupe de travail"
-institute: "Cesab"
-date: "2016/12/12 (updated: `r Sys.Date()`)"
+title: .small[Une carte de l'Amérique Latine]
+subtitle: .ssmall[Répartition des espèces dans les classes de vulnérabilité]
+author: .verysmall[<br />Le 6 décembre 2019<br />Dans les locaux du Cesab à Montpellier]
 output:
   xaringan::moon_reader:
-    css: ["default", "rutgers"]
-    lib_dir: libs
-    yolo: FALSE
+    css: ["assets/css/xaringan-themer.css"]
+    seal: true
+    yolo: false
+    self_contained: false
     nature:
-      highlightStyle: github
-      highlightLines: true
+      ratio: "4:3"
+      titleSlideClass: ["right", "middle"]
+      highlightStyle: 'zenburn'
+      highlightLines: false
       countIncrementalSlides: false
+      slideNumberFormat: "%current% / %total%"
+      beforeInit: "assets/libs/macros.js"
 ---
 
-class: center, middle
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
 
-# Projet de carte des especes en Amérique latine
+## les objectifs
+* Faire la carte avec la répartition des espèces de chaque pays dans les différentes classes UICN  
+
+* Utiliser le plus possible d'éléments abordés pendant la semaine:  
+  + tidyverse et Rmarkdown  
+  + sf pour les données spatiale
+  + drake  
+  + l'importation des données internet (API)   
+  + **git et github**
+  
+---
+## retours
+* git ne commut pas les dossiers vides.  
+* le plan de drake est un data.frame, donc utiliser **=** pour objects=fonctions().  
+* sourcer charge juste les fonctions (ne les applique pas). Il faut donc sourcer puis appliquer le plan dans le make.r.  
+* le graphique des interactions ne peut être produit directement dans le R.mardown. Il convient de l'enregistrer en .png au paravant.
 
 ---
-class: center, middle
-
-# les objectifs
-### utiliser 
+## le graphique des dépendances
+.center[![:scale 100%](output/drake_plot.png)]
 
 ---
+## Les coupables
 
-# Hello World
+.center[![:scale 80%](output/merci.png)]
 
-
---
-
-
-
---
-
-- Click the `Knit` button to compile it;
-
---
-
-
-.footnote[
-[1] 中文用户请看[这份教程](http://slides.yihui.name/xaringan/zh-CN.html)
-
-[2] See [#2](https://github.com/yihui/xaringan/issues/2) if you do not see the template or addin in RStudio.
-]
-
----
-background-image: url(`r xaringan:::karl`)
-background-position: 50% 50%
-class: center, bottom, inverse
-
-# You only live once!
-
-
+## MERCI
