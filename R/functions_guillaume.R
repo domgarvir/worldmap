@@ -32,7 +32,12 @@ sf_countries<-countries %>%
   
 carto_uicn<-function(jdd,countries){
 
-  class_uicn<-unique(jdd$category)
+  class_uicn<-jdd %>%
+    dplyr::filter(category != "LR/cd" & category != "LR/lc", category != "LR/nt") %>%
+    dplyr::select(category) %>%
+    unique() %>%
+    pull()
+    
   jdd2<-tidyr::pivot_wider(jdd, names_from = category, values_from = n)
 
   jdd_sf<-right_join(countries,jdd2,by=c("iso_a2"="country"))
@@ -47,9 +52,10 @@ carto_uicn<-function(jdd,countries){
    mutate(n_species=rowSums(jdd2[,class_uicn]))
   
   ggplot(jdd_sf)+
-    geom_sf()+
+    geom_sf(fill=NA)+
     geom_scatterpie(data=jdd_df,aes(x=long,y=lat,group=iso_a2,r=sqrt(n_species/pi)/20),cols=class_uicn)+
     #scale_size(range=c(1:4))+
+    scale_fill_manual(breaks=c("CR","DD","EN","EW","EX","LC","NT","VU"),values=c("red","grey20","orange","grey80","black","green","darkgreen","yellow"))+
     theme_void()
   
 
